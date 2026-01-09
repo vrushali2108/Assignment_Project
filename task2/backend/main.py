@@ -2,6 +2,39 @@
 FastAPI Backend for AI Feedback System
 Handles review submissions, LLM processing, and data persistence
 """
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware # 1. Import Middleware
+
+app = FastAPI()
+
+# 2. Define the allowed origins
+origins = [
+    "https://assignment-project-lemon.vercel.app",
+]
+
+# 3. Add the middleware to your app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, validator
